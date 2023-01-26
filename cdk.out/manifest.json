@@ -1,0 +1,88 @@
+{
+  "version": "29.0.0",
+  "artifacts": {
+    "csv-converter-dev.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "csv-converter-dev.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "csv-converter-dev": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://221278850141/us-east-1",
+      "properties": {
+        "templateFile": "csv-converter-dev.template.json",
+        "tags": {
+          "Application": "CSV converter python application",
+          "Environment": "dev",
+          "Version": "0.1.0"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::221278850141:role/cdk-hnb659fds-deploy-role-221278850141-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::221278850141:role/cdk-hnb659fds-cfn-exec-role-221278850141-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-221278850141-us-east-1/ee29f373eba80ad9cd808c94179263356f50afb52577d96051786f5ec7d48231.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "csv-converter-dev.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::221278850141:role/cdk-hnb659fds-lookup-role-221278850141-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "csv-converter-dev.assets"
+      ],
+      "metadata": {
+        "/csv-converter-dev": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "Application",
+                "Value": "CSV converter python application"
+              },
+              {
+                "Key": "Environment",
+                "Value": "dev"
+              },
+              {
+                "Key": "Version",
+                "Value": "0.1.0"
+              }
+            ]
+          }
+        ],
+        "/csv-converter-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/csv-converter-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/csv-converter-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "csv-converter-dev"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

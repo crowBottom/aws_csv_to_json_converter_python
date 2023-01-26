@@ -11,12 +11,11 @@ from aws_cdk import (
 )
 
 
-class UHCAutoOrderIntake(aws_cdk.Stack):
+class CSVConverter(aws_cdk.Stack):
     def __init__(
         self,
         scope: constructs.Construct,
         id: builtins.str,
-        config: BuildConfig,
         *args,
         **kwargs
     ):

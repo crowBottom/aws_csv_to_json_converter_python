@@ -5,13 +5,13 @@ import cdk
 
 app = aws_cdk.App()
 
-cdk.UHCAutoOrderIntake(
+cdk.CSVConverter(
     app,
-    "uhc-auto-order-intake-dev",
+    "csv-converter-dev",
     env=aws_cdk.Environment(account="221278850141", region="us-east-1"),
-    description="Auto order intake python dev environment for uhc",
+    description="Convert a csv to json and store record in Dynamo",
     tags={
-        "Application": "Auto order intake python application",
+        "Application": "CSV converter python application",
         "Environment": "dev",
         "Version": os.environ["VERSION"]
     },
