@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "aws_csv_to_json_converter_python"
+version = "0.1.0"
+description = "A service that converts a csv file into json and sd in a db"
+authors = ["crowBottom <jpcunningham_dev@protonmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+aws-cdk-lib = "^2.62.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
