@@ -1,0 +1,8 @@
+{
+  "app": "VERSION=`poetry version --short` poetry run python cdk.py",
+  "context": {
+    "dev": {},
+    "staging": {},
+    "prod": {}
+  }
+}
