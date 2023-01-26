@@ -1,4 +1,4 @@
-from cdk.uhc_auto_order_intake import CSVConverter
+from cdk.csv_converter import CSVConverter
 
 __all__ = [
     "CSVConverter"
