@@ -2,7 +2,7 @@ import json
 import boto3
 import csv
 
-def lambda_handler(event, context):
+def handler(event, context):
     print("CSV to JSON Lambda Running")
     print(f"Incoming Event")
     print(f"{event}")
