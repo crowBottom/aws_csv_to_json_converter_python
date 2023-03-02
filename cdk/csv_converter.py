@@ -26,9 +26,9 @@ class CSVConverter(aws_cdk.Stack):
 
 
         # Define an S3
-        image_bucket = s3.Bucket(
+        csv_bucket = s3.Bucket(
             scope=self,
-            id="image-bucket"
+            id="csv-bucket"
         )
 
 
@@ -38,12 +38,15 @@ class CSVConverter(aws_cdk.Stack):
             id="csv-converter-lambda",
             runtime=_lambda.Runtime.PYTHON_3_9,
             code=_lambda.Code.from_asset("events/convert_files"),
-            handler="lambda_function.lambda_handler",
+            handler="lambda_handler.handler",
         )
+
+        # Give lambda access to the csv-bucket
+        csv_bucket.grant_read_write(csv_converter_lambda)
 
 
         # Define a notification to trigger the lambda from S3
-        image_bucket.add_event_notification(
+        csv_bucket.add_event_notification(
             s3.EventType.OBJECT_CREATED,
             s3n.LambdaDestination(csv_converter_lambda)
         )
